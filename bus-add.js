@@ -1,8 +1,3 @@
-const getBusses = () => {
-    let BusJSON =  localStorage.getItem('bus')
-    return BusJSON ? JSON.parse(BusJSON):[]
-}
-let bus= getBusses()
 
 ////--------------adding 
  const BusNo= document.querySelector('#Bus_no')
@@ -13,9 +8,6 @@ const ArrLoc= document.querySelector('#Arr_loc')
 const Seats= document.querySelector('#seats')
 
 
-const setBusses=  (bus)=>{
-    localStorage.setItem('bus', JSON.stringify(bus))
-}
 
 document.querySelector('#back').addEventListener('click', (e)=>{
     location.assign('index.html')
