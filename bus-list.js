@@ -1,7 +1,5 @@
 
 
-
-
 const list = document.querySelector('#list')// div element
 //header of a table
 let headers = ['Bus Number', 'Departure Time', 'Departure Location', 'Arrival Time', 'Arrival Lcation', 'Total Seats']
@@ -32,6 +30,12 @@ let headers = ['Bus Number', 'Departure Time', 'Departure Location', 'Arrival Ti
         const seat = document.createElement('a')
         seat_btn.textContent= 'Available Seats'
         seat.appendChild(seat_btn)
+
+        // ///////--creating pessenger btn
+        // const psn_btn =document.createElement('button')
+        // const psn = document.createElement('a')
+        // psn_btn.textContent= 'Passenger'
+        // psn.appendChild(psn_btn)
         
 
         ////////-----Displaying the values of bus object of array
@@ -54,7 +58,10 @@ let headers = ['Bus Number', 'Departure Time', 'Departure Location', 'Arrival Ti
             
             console.log(b.Seat)
            })
-          
+        //    psn.addEventListener('click', (e)=>{
+        //     location.assign(`passenger-list.html#${b.Bus_no}`)
+        //    })
+            
            
         })
        
@@ -70,6 +77,8 @@ let headers = ['Bus Number', 'Departure Time', 'Departure Location', 'Arrival Ti
          
          
         text_row.appendChild(seat)
+        // text_row.appendChild(psn)
+        
         table.appendChild(text_row)
 
         
@@ -82,5 +91,21 @@ document.querySelector('#back').addEventListener('click', ()=>{
     location.assign('index.html')
 })
 
+const search_bus=() => {
+    let input= document.getElementById('search').value.toUpperCase();
+    let tr = table.getElementsByTagName('tr')
+    for (let index = 0; index < tr.length; index++) {
+        let td = tr[index].getElementsByTagName('td')[0];
+        if (td){
+            let text = td.textContent || td.innerHTML
+            if (text.toUpperCase().indexOf(input) > -1) {
+                tr[index].style.display  ='';
+
+            } else {
+                tr[index].style.display  ="none";
+            }
+        }
+    }
+ }
 
 
